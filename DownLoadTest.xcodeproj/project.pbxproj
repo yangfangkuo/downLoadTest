@@ -1,0 +1,594 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1F3BC43931C6F46A18CE4EFD /* libPods-DownLoadTest.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ACC3F7AC4FB6039CF1B67A46 /* libPods-DownLoadTest.a */; };
+		271642991FD69C0500F9AAC9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 271642981FD69C0500F9AAC9 /* AppDelegate.m */; };
+		2716429C1FD69C0500F9AAC9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2716429B1FD69C0500F9AAC9 /* ViewController.m */; };
+		2716429F1FD69C0500F9AAC9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2716429D1FD69C0500F9AAC9 /* Main.storyboard */; };
+		271642A11FD69C0500F9AAC9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 271642A01FD69C0500F9AAC9 /* Assets.xcassets */; };
+		271642A41FD69C0500F9AAC9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 271642A21FD69C0500F9AAC9 /* LaunchScreen.storyboard */; };
+		271642A71FD69C0500F9AAC9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 271642A61FD69C0500F9AAC9 /* main.m */; };
+		271642B11FD69C0500F9AAC9 /* DownLoadTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 271642B01FD69C0500F9AAC9 /* DownLoadTestTests.m */; };
+		271642BD1FD69E1700F9AAC9 /* QDNetServerDownLoadTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 271642BC1FD69E1600F9AAC9 /* QDNetServerDownLoadTool.m */; };
+		EE8E1896A1AF5C8F330D314D /* libPods-DownLoadTestTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B633C7E8D21FCF3895740CA4 /* libPods-DownLoadTestTests.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		271642AD1FD69C0500F9AAC9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2716428C1FD69C0500F9AAC9 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 271642931FD69C0500F9AAC9;
+			remoteInfo = DownLoadTest;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		271642941FD69C0500F9AAC9 /* DownLoadTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DownLoadTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		271642971FD69C0500F9AAC9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		271642981FD69C0500F9AAC9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		2716429A1FD69C0500F9AAC9 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		2716429B1FD69C0500F9AAC9 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		2716429E1FD69C0500F9AAC9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		271642A01FD69C0500F9AAC9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		271642A31FD69C0500F9AAC9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		271642A51FD69C0500F9AAC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		271642A61FD69C0500F9AAC9 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		271642AC1FD69C0500F9AAC9 /* DownLoadTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DownLoadTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		271642B01FD69C0500F9AAC9 /* DownLoadTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DownLoadTestTests.m; sourceTree = "<group>"; };
+		271642B21FD69C0500F9AAC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		271642BB1FD69E1600F9AAC9 /* QDNetServerDownLoadTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QDNetServerDownLoadTool.h; sourceTree = "<group>"; };
+		271642BC1FD69E1600F9AAC9 /* QDNetServerDownLoadTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QDNetServerDownLoadTool.m; sourceTree = "<group>"; };
+		4C07D5EFE367793E1FEE3FAB /* Pods-DownLoadTestTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DownLoadTestTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DownLoadTestTests/Pods-DownLoadTestTests.debug.xcconfig"; sourceTree = "<group>"; };
+		A50668B023F2905BB21EE19B /* Pods-DownLoadTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DownLoadTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DownLoadTest/Pods-DownLoadTest.debug.xcconfig"; sourceTree = "<group>"; };
+		ACC3F7AC4FB6039CF1B67A46 /* libPods-DownLoadTest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DownLoadTest.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		B633C7E8D21FCF3895740CA4 /* libPods-DownLoadTestTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DownLoadTestTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		F33DF33E2B2A405247FECDC8 /* Pods-DownLoadTestTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DownLoadTestTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DownLoadTestTests/Pods-DownLoadTestTests.release.xcconfig"; sourceTree = "<group>"; };
+		F90CD45F440FCEAEE17D7007 /* Pods-DownLoadTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DownLoadTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-DownLoadTest/Pods-DownLoadTest.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		271642911FD69C0500F9AAC9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1F3BC43931C6F46A18CE4EFD /* libPods-DownLoadTest.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		271642A91FD69C0500F9AAC9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EE8E1896A1AF5C8F330D314D /* libPods-DownLoadTestTests.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2716428B1FD69C0500F9AAC9 = {
+			isa = PBXGroup;
+			children = (
+				271642961FD69C0500F9AAC9 /* DownLoadTest */,
+				271642AF1FD69C0500F9AAC9 /* DownLoadTestTests */,
+				271642951FD69C0500F9AAC9 /* Products */,
+				520784276727EC81921FED5A /* Pods */,
+				6708D23EFAAA46AC8B088D45 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		271642951FD69C0500F9AAC9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				271642941FD69C0500F9AAC9 /* DownLoadTest.app */,
+				271642AC1FD69C0500F9AAC9 /* DownLoadTestTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		271642961FD69C0500F9AAC9 /* DownLoadTest */ = {
+			isa = PBXGroup;
+			children = (
+				271642971FD69C0500F9AAC9 /* AppDelegate.h */,
+				271642981FD69C0500F9AAC9 /* AppDelegate.m */,
+				2716429A1FD69C0500F9AAC9 /* ViewController.h */,
+				2716429B1FD69C0500F9AAC9 /* ViewController.m */,
+				271642BB1FD69E1600F9AAC9 /* QDNetServerDownLoadTool.h */,
+				271642BC1FD69E1600F9AAC9 /* QDNetServerDownLoadTool.m */,
+				2716429D1FD69C0500F9AAC9 /* Main.storyboard */,
+				271642A01FD69C0500F9AAC9 /* Assets.xcassets */,
+				271642A21FD69C0500F9AAC9 /* LaunchScreen.storyboard */,
+				271642A51FD69C0500F9AAC9 /* Info.plist */,
+				271642A61FD69C0500F9AAC9 /* main.m */,
+			);
+			path = DownLoadTest;
+			sourceTree = "<group>";
+		};
+		271642AF1FD69C0500F9AAC9 /* DownLoadTestTests */ = {
+			isa = PBXGroup;
+			children = (
+				271642B01FD69C0500F9AAC9 /* DownLoadTestTests.m */,
+				271642B21FD69C0500F9AAC9 /* Info.plist */,
+			);
+			path = DownLoadTestTests;
+			sourceTree = "<group>";
+		};
+		520784276727EC81921FED5A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A50668B023F2905BB21EE19B /* Pods-DownLoadTest.debug.xcconfig */,
+				F90CD45F440FCEAEE17D7007 /* Pods-DownLoadTest.release.xcconfig */,
+				4C07D5EFE367793E1FEE3FAB /* Pods-DownLoadTestTests.debug.xcconfig */,
+				F33DF33E2B2A405247FECDC8 /* Pods-DownLoadTestTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		6708D23EFAAA46AC8B088D45 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ACC3F7AC4FB6039CF1B67A46 /* libPods-DownLoadTest.a */,
+				B633C7E8D21FCF3895740CA4 /* libPods-DownLoadTestTests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		271642931FD69C0500F9AAC9 /* DownLoadTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 271642B51FD69C0500F9AAC9 /* Build configuration list for PBXNativeTarget "DownLoadTest" */;
+			buildPhases = (
+				C0175D392E55776885E13AC7 /* [CP] Check Pods Manifest.lock */,
+				271642901FD69C0500F9AAC9 /* Sources */,
+				271642911FD69C0500F9AAC9 /* Frameworks */,
+				271642921FD69C0500F9AAC9 /* Resources */,
+				FCD63129C63916CF451CA4D1 /* [CP] Embed Pods Frameworks */,
+				6D779E07EF544EF50CD38889 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DownLoadTest;
+			productName = DownLoadTest;
+			productReference = 271642941FD69C0500F9AAC9 /* DownLoadTest.app */;
+			productType = "com.apple.product-type.application";
+		};
+		271642AB1FD69C0500F9AAC9 /* DownLoadTestTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 271642B81FD69C0500F9AAC9 /* Build configuration list for PBXNativeTarget "DownLoadTestTests" */;
+			buildPhases = (
+				1E5736CE6568FFDE048AFD91 /* [CP] Check Pods Manifest.lock */,
+				271642A81FD69C0500F9AAC9 /* Sources */,
+				271642A91FD69C0500F9AAC9 /* Frameworks */,
+				271642AA1FD69C0500F9AAC9 /* Resources */,
+				DE7D9AE886D81E10F18E8D73 /* [CP] Embed Pods Frameworks */,
+				41BB3B833B2538896537C1E4 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				271642AE1FD69C0500F9AAC9 /* PBXTargetDependency */,
+			);
+			name = DownLoadTestTests;
+			productName = DownLoadTestTests;
+			productReference = 271642AC1FD69C0500F9AAC9 /* DownLoadTestTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2716428C1FD69C0500F9AAC9 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0910;
+				ORGANIZATIONNAME = Quarkdata;
+				TargetAttributes = {
+					271642931FD69C0500F9AAC9 = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+					};
+					271642AB1FD69C0500F9AAC9 = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 271642931FD69C0500F9AAC9;
+					};
+				};
+			};
+			buildConfigurationList = 2716428F1FD69C0500F9AAC9 /* Build configuration list for PBXProject "DownLoadTest" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2716428B1FD69C0500F9AAC9;
+			productRefGroup = 271642951FD69C0500F9AAC9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				271642931FD69C0500F9AAC9 /* DownLoadTest */,
+				271642AB1FD69C0500F9AAC9 /* DownLoadTestTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		271642921FD69C0500F9AAC9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				271642A41FD69C0500F9AAC9 /* LaunchScreen.storyboard in Resources */,
+				271642A11FD69C0500F9AAC9 /* Assets.xcassets in Resources */,
+				2716429F1FD69C0500F9AAC9 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		271642AA1FD69C0500F9AAC9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1E5736CE6568FFDE048AFD91 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DownLoadTestTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		41BB3B833B2538896537C1E4 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DownLoadTestTests/Pods-DownLoadTestTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6D779E07EF544EF50CD38889 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DownLoadTest/Pods-DownLoadTest-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C0175D392E55776885E13AC7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DownLoadTest-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DE7D9AE886D81E10F18E8D73 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DownLoadTestTests/Pods-DownLoadTestTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FCD63129C63916CF451CA4D1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-DownLoadTest/Pods-DownLoadTest-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		271642901FD69C0500F9AAC9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2716429C1FD69C0500F9AAC9 /* ViewController.m in Sources */,
+				271642BD1FD69E1700F9AAC9 /* QDNetServerDownLoadTool.m in Sources */,
+				271642A71FD69C0500F9AAC9 /* main.m in Sources */,
+				271642991FD69C0500F9AAC9 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		271642A81FD69C0500F9AAC9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				271642B11FD69C0500F9AAC9 /* DownLoadTestTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		271642AE1FD69C0500F9AAC9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 271642931FD69C0500F9AAC9 /* DownLoadTest */;
+			targetProxy = 271642AD1FD69C0500F9AAC9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		2716429D1FD69C0500F9AAC9 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2716429E1FD69C0500F9AAC9 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		271642A21FD69C0500F9AAC9 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				271642A31FD69C0500F9AAC9 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		271642B31FD69C0500F9AAC9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		271642B41FD69C0500F9AAC9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		271642B61FD69C0500F9AAC9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A50668B023F2905BB21EE19B /* Pods-DownLoadTest.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5AKB523DZ4;
+				INFOPLIST_FILE = DownLoadTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = quarkdata.DownLoadTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		271642B71FD69C0500F9AAC9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F90CD45F440FCEAEE17D7007 /* Pods-DownLoadTest.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5AKB523DZ4;
+				INFOPLIST_FILE = DownLoadTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = quarkdata.DownLoadTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		271642B91FD69C0500F9AAC9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4C07D5EFE367793E1FEE3FAB /* Pods-DownLoadTestTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5AKB523DZ4;
+				INFOPLIST_FILE = DownLoadTestTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = quarkdata.DownLoadTestTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DownLoadTest.app/DownLoadTest";
+			};
+			name = Debug;
+		};
+		271642BA1FD69C0500F9AAC9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F33DF33E2B2A405247FECDC8 /* Pods-DownLoadTestTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 5AKB523DZ4;
+				INFOPLIST_FILE = DownLoadTestTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = quarkdata.DownLoadTestTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DownLoadTest.app/DownLoadTest";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2716428F1FD69C0500F9AAC9 /* Build configuration list for PBXProject "DownLoadTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				271642B31FD69C0500F9AAC9 /* Debug */,
+				271642B41FD69C0500F9AAC9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		271642B51FD69C0500F9AAC9 /* Build configuration list for PBXNativeTarget "DownLoadTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				271642B61FD69C0500F9AAC9 /* Debug */,
+				271642B71FD69C0500F9AAC9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		271642B81FD69C0500F9AAC9 /* Build configuration list for PBXNativeTarget "DownLoadTestTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				271642B91FD69C0500F9AAC9 /* Debug */,
+				271642BA1FD69C0500F9AAC9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 2716428C1FD69C0500F9AAC9 /* Project object */;
+}

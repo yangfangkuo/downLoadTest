@@ -1,0 +1,64 @@
+//
+//  ViewController.m
+//  DownLoadTest
+//
+//  Created by Mike on 2017/12/5.
+//  Copyright © 2017年 Quarkdata. All rights reserved.
+//
+
+#import "ViewController.h"
+#import "QDNetServerDownLoadTool.h"
+@interface ViewController ()
+{
+    NSString  *downLoadUrl;
+    NSURL *fileUrl;
+    NSURLSessionDownloadTask *task;
+
+}
+@end
+
+@implementation ViewController
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    self.Progress.progress = 0;
+    downLoadUrl = @"https://static.tigerbrokers.com/desktop/download/Tiger_Trade_latest.dmg";
+    NSArray *paths=NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES);
+    NSString *path=[paths     objectAtIndex:0];
+    fileUrl = [NSURL URLWithString: [path stringByAppendingPathComponent:@"Tiger_Trade_latest.dmg"]];
+
+}
+- (IBAction)startNew:(id)sender {
+    
+    NSURLSessionDownloadTask *tempTask = [[QDNetServerDownLoadTool sharedTool]AFDownLoadFileWithUrl:downLoadUrl progress:^(CGFloat progress) {
+        NSLog(@"下载进度是 %f",progress);
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.Progress.progress = progress;
+        });
+    } fileLocalUrl:fileUrl success:^(NSURL *fileUrlPath, NSURLResponse *response) {
+        NSLog(@"下载成功 ");
+    } failure:^(NSError *error, NSInteger statusCode) {
+        NSLog(@"下载失败,下载的data被downLoad工具处理了 ");
+
+    }];
+    task = tempTask;
+}
+
+- (IBAction)pause:(id)sender {
+    //可以在这里存储resumeData ,也可以去QDNetServerDownLoadTool 里面 根据那个通知去处理 都有回调的
+    [task cancelByProducingResumeData:^(NSData * _Nullable resumeData) {
+        
+    }];
+}
+- (IBAction)Continitue:(id)sender {
+    [self startNew:sender];
+    NSLog(@"关于是续传还是开始重新下载 被工具类处理了");
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+
+@end
