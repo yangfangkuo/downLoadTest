@@ -23,10 +23,10 @@
     [super viewDidLoad];
     self.Progress.progress = 0;
     downLoadUrl = @"https://static.tigerbrokers.com/desktop/download/Tiger_Trade_latest.dmg";
-    NSArray *paths=NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES);
-    NSString *path=[paths     objectAtIndex:0];
-    fileUrl = [NSURL URLWithString: [path stringByAppendingPathComponent:@"Tiger_Trade_latest.dmg"]];
-
+    NSString *localPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+    // 要检查的文件目录
+    NSString *filePath = [localPath  stringByAppendingPathComponent:@"Tiger_Trade_latest.dmg"];
+    fileUrl = [NSURL fileURLWithPath:filePath isDirectory:NO];
 }
 - (IBAction)startNew:(id)sender {
     
@@ -36,7 +36,7 @@
             self.Progress.progress = progress;
         });
     } fileLocalUrl:fileUrl success:^(NSURL *fileUrlPath, NSURLResponse *response) {
-        NSLog(@"下载成功 ");
+        NSLog(@"下载成功 下载的文档路径是 %@, fileUrlPath");
     } failure:^(NSError *error, NSInteger statusCode) {
         NSLog(@"下载失败,下载的data被downLoad工具处理了 ");
 
