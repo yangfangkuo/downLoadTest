@@ -36,7 +36,7 @@
             self.Progress.progress = progress;
         });
     } fileLocalUrl:fileUrl success:^(NSURL *fileUrlPath, NSURLResponse *response) {
-        NSLog(@"下载成功 下载的文档路径是 %@, fileUrlPath");
+        NSLog(@"下载成功 下载的文档路径是 %@, ",fileUrlPath);
     } failure:^(NSError *error, NSInteger statusCode) {
         NSLog(@"下载失败,下载的data被downLoad工具处理了 ");
 
