@@ -5,7 +5,6 @@
 //  Created by Apple on 2017/7/20.
 //  Copyright © 2017年 Thunder Software Technology. All rights reserved.
 //
-#define  QDUserName    @"Apple"
 
 #import "QDNetServerDownLoadTool.h"
 #import <AFNetworking/AFNetworking.h>
@@ -49,7 +48,7 @@ static QDNetServerDownLoadTool *tool = nil;
         
         NSArray *paths=NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES);
         NSString *path=[paths     objectAtIndex:0];
-        self.fileHistoryPath=[path stringByAppendingPathComponent:[NSString stringWithFormat:@"%@/fileDownLoadHistory.plist", QDUserName]];
+        self.fileHistoryPath=[path stringByAppendingPathComponent:@"fileDownLoadHistory.plist"];
         if ([[NSFileManager defaultManager] fileExistsAtPath:self.fileHistoryPath]) {
             self.downLoadHistoryDictionary =[NSMutableDictionary dictionaryWithContentsOfFile:self.fileHistoryPath];
         }else{
@@ -67,11 +66,10 @@ static QDNetServerDownLoadTool *tool = nil;
         [self.downLoadHistoryDictionary setObject:emptyData forKey:key];
 
     }else{
-        NSLog(@"要存的这个data的长度 = %ld",data.length);
         [self.downLoadHistoryDictionary setObject:data forKey:key];
     }
-  bool save =  [self.downLoadHistoryDictionary writeToFile:self.fileHistoryPath atomically:YES];
-    NSLog(@"是否存储成功 %d",save);
+    
+  [self.downLoadHistoryDictionary writeToFile:self.fileHistoryPath atomically:NO];
 }
 - (void)saveDownLoadHistoryDirectory{
     [self.downLoadHistoryDictionary writeToFile:self.fileHistoryPath atomically:YES];
@@ -84,8 +82,7 @@ static QDNetServerDownLoadTool *tool = nil;
     
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:urlHost]];
     NSURLSessionDownloadTask   *downloadTask = nil;
-    NSString *key = [NSString stringWithFormat:@"%@%@",QDUserName,urlHost];
-    NSData *downLoadHistoryData = [self.downLoadHistoryDictionary   objectForKey:key];
+    NSData *downLoadHistoryData = [self.downLoadHistoryDictionary   objectForKey:urlHost];
     NSLog(@"本地是否存储需要续传的数据长度为 %ld",downLoadHistoryData.length);
     if (downLoadHistoryData.length > 0 ) {
         NSLog(@"使用旧任务");
@@ -156,19 +153,17 @@ static QDNetServerDownLoadTool *tool = nil;
     if ([notification.object isKindOfClass:[ NSURLSessionDownloadTask class]]) {
         NSURLSessionDownloadTask *task = notification.object;
         NSString *urlHost = [task.currentRequest.URL absoluteString];
-        NSString *key = nil;
-        key = [NSString stringWithFormat:@"%@%@",QDUserName,urlHost];
         NSError *error  = [notification.userInfo objectForKey:AFNetworkingTaskDidCompleteErrorKey] ;
         if (error) {
             if (error.code == -1001) {
                 NSLog(@"下载出错,看一下网络是否正常");
             }
             NSData *resumeData = [error.userInfo objectForKey:@"NSURLSessionDownloadTaskResumeData"];
-            [self saveHistoryWithKey:key DownloadTaskResumeData:resumeData];
+            [self saveHistoryWithKey:urlHost DownloadTaskResumeData:resumeData];
             //这个是因为 用户比如强退程序之后 ,再次进来的时候 存进去这个继续的data  需要用户去刷新列表
         }else{
-            if ([self.downLoadHistoryDictionary valueForKey:key]) {
-                [self.downLoadHistoryDictionary removeObjectForKey:key];
+            if ([self.downLoadHistoryDictionary valueForKey:urlHost]) {
+                [self.downLoadHistoryDictionary removeObjectForKey:urlHost];
                 [self saveDownLoadHistoryDirectory];
             }
         }
