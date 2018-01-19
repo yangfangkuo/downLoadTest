@@ -67,9 +67,11 @@ static QDNetServerDownLoadTool *tool = nil;
         [self.downLoadHistoryDictionary setObject:emptyData forKey:key];
 
     }else{
+        NSLog(@"要存的这个data的长度 = %ld",data.length);
         [self.downLoadHistoryDictionary setObject:data forKey:key];
     }
-    [self.downLoadHistoryDictionary writeToFile:self.fileHistoryPath atomically:YES];
+  bool save =  [self.downLoadHistoryDictionary writeToFile:self.fileHistoryPath atomically:YES];
+    NSLog(@"是否存储成功 %d",save);
 }
 - (void)saveDownLoadHistoryDirectory{
     [self.downLoadHistoryDictionary writeToFile:self.fileHistoryPath atomically:YES];
@@ -84,7 +86,9 @@ static QDNetServerDownLoadTool *tool = nil;
     NSURLSessionDownloadTask   *downloadTask = nil;
     NSString *key = [NSString stringWithFormat:@"%@%@",QDUserName,urlHost];
     NSData *downLoadHistoryData = [self.downLoadHistoryDictionary   objectForKey:key];
+    NSLog(@"本地是否存储需要续传的数据长度为 %ld",downLoadHistoryData.length);
     if (downLoadHistoryData.length > 0 ) {
+        NSLog(@"使用旧任务");
         downloadTask = [self.manager downloadTaskWithResumeData:downLoadHistoryData progress:^(NSProgress * _Nonnull downloadProgress) {
             if (progress) {
                 progress(1.0 * downloadProgress.completedUnitCount / downloadProgress.totalUnitCount);
@@ -113,7 +117,7 @@ static QDNetServerDownLoadTool *tool = nil;
             
         }];
     }else{
-        
+        NSLog(@"开辟 新任务");
         downloadTask = [self.manager    downloadTaskWithRequest:request progress:^(NSProgress * _Nonnull downloadProgress) {
             if (progress) {
                 progress(1.0 * downloadProgress.completedUnitCount / downloadProgress.totalUnitCount);

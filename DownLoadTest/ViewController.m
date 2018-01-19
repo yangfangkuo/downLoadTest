@@ -13,7 +13,7 @@
     NSString  *downLoadUrl;
     NSURL *fileUrl;
     NSURLSessionDownloadTask *task;
-
+    BOOL downLoadIng;
 }
 @end
 
@@ -30,8 +30,11 @@
 }
 - (IBAction)startNew:(id)sender {
     
+    if (downLoadIng) {
+        return;
+    }
+    downLoadIng = YES;
     NSURLSessionDownloadTask *tempTask = [[QDNetServerDownLoadTool sharedTool]AFDownLoadFileWithUrl:downLoadUrl progress:^(CGFloat progress) {
-        NSLog(@"下载进度是 %f",progress);
         dispatch_async(dispatch_get_main_queue(), ^{
             self.Progress.progress = progress;
         });
@@ -46,14 +49,12 @@
 
 - (IBAction)pause:(id)sender {
     //可以在这里存储resumeData ,也可以去QDNetServerDownLoadTool 里面 根据那个通知去处理 都有回调的
+    downLoadIng = NO;
     [task cancelByProducingResumeData:^(NSData * _Nullable resumeData) {
         
     }];
 }
-- (IBAction)Continitue:(id)sender {
-    [self startNew:sender];
-    NSLog(@"关于是续传还是开始重新下载 被工具类处理了");
-}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
