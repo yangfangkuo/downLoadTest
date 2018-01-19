@@ -49,10 +49,12 @@
 
 - (IBAction)pause:(id)sender {
     //可以在这里存储resumeData ,也可以去QDNetServerDownLoadTool 里面 根据那个通知去处理 都有回调的
+    if (downLoadIng) {
+        [task cancelByProducingResumeData:^(NSData * _Nullable resumeData) {
+            
+        }];
+    }
     downLoadIng = NO;
-    [task cancelByProducingResumeData:^(NSData * _Nullable resumeData) {
-        
-    }];
 }
 
 
