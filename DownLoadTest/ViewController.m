@@ -23,6 +23,7 @@
     [super viewDidLoad];
     self.Progress.progress = 0;
     downLoadUrl = @"https://static.tigerbrokers.com/desktop/download/Tiger_Trade_latest.dmg";
+    //上面的资源不确定一直都在 自己找一个能下载的资源使用 当前发现资源已经无法使用 时间 2018.07.17 
     NSString *localPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
     // 要检查的文件目录
     NSString *filePath = [localPath  stringByAppendingPathComponent:@"Tiger_Trade_latest.dmg"];
