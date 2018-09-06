@@ -22,8 +22,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.Progress.progress = 0;
-    downLoadUrl = @"https://static.tigerbrokers.com/desktop/download/Tiger_Trade_latest.dmg";
-    //上面的资源不确定一直都在 自己找一个能下载的资源使用 当前发现资源已经无法使用 时间 2018.07.17 
+    downLoadUrl = @"https://www.apple.com/105/media/cn/iphone-x/2017/01df5b43-28e4-4848-bf20-490c34a926a7/films/feature/iphone-x-feature-cn-20170912_1280x720h.mp4";
+    //上面的资源不确定一直都在 自己找一个能下载的资源使用  
     NSString *localPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
     // 要检查的文件目录
     NSString *filePath = [localPath  stringByAppendingPathComponent:@"Tiger_Trade_latest.dmg"];
