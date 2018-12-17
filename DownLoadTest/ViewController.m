@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "QDNetServerDownLoadTool.h"
+#import "ShowViewController.h"
 @interface ViewController ()
 {
     NSString  *downLoadUrl;
@@ -18,6 +19,11 @@
 @end
 
 @implementation ViewController
+- (IBAction)show:(id)sender {
+    
+    ShowViewController *show = [ShowViewController new];
+    [self presentViewController:show animated:YES completion:nil];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

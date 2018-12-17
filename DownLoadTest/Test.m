@@ -1,20 +1,19 @@
 //
-//  QDNetServerDownLoadTool.m
-//  QuarkData
+//  Test.m
+//  DownLoadTest
 //
-//  Created by Apple on 2017/7/20.
-//  Copyright © 2017年 Thunder Software Technology. All rights reserved.
+//  Created by Mike on 2018/12/17.
+//  Copyright © 2018 Quarkdata. All rights reserved.
 //
 
-#import "QDNetServerDownLoadTool.h"
+#import "Test.h"
 #import <AFNetworking/AFNetworking.h>
-@interface QDNetServerDownLoadTool ()
+@interface Test ()
 @property (nonatomic,strong) NSString  *fileHistoryPath;
 
 @end
-
-@implementation QDNetServerDownLoadTool
-static QDNetServerDownLoadTool *tool = nil;
+@implementation Test
+static Test *tool = nil;
 + (instancetype)sharedTool{
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -25,21 +24,13 @@ static QDNetServerDownLoadTool *tool = nil;
 - (instancetype)init{
     self = [super init];
     if (self) {
-        NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration backgroundSessionConfigurationWithIdentifier:@"com.bundleiD.TES"];
-        //设置请求超时为10秒钟
         
-        configuration.timeoutIntervalForRequest = 30;
+        NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
         //在蜂窝网络情况下是否继续请求（上传或下载）
-        configuration.allowsCellularAccess = YES;
-        
-        self.manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
-        
-        //网络变化的通知
-//        [[NSNotificationCenter defaultCenter] addObserver:self
-//                                                 selector:@selector(networkChanged:)
-//                                                     name:kRealReachabilityChangedNotification
-//                                                   object:nil];
-        
+//        configuration.allowsCellularAccess = YES;
+        configuration.HTTPMaximumConnectionsPerHost = 12;
+        _manager = [[AFHTTPSessionManager alloc] initWithSessionConfiguration:configuration];
+        //        1 2  6 3  5
         NSURLSessionDownloadTask *task;
         [[NSNotificationCenter defaultCenter] addObserver:self
                                                  selector:@selector(downLoadData:)
@@ -57,6 +48,7 @@ static QDNetServerDownLoadTool *tool = nil;
             [self.downLoadHistoryDictionary writeToFile:self.fileHistoryPath atomically:YES];
         }
         NSLog(@"%s   self.test.session = %@ ",__func__,self.manager.session);
+
     }
     return  self;
 }
@@ -65,12 +57,12 @@ static QDNetServerDownLoadTool *tool = nil;
     if (!data) {
         NSString *emptyData = [NSString stringWithFormat:@""];
         [self.downLoadHistoryDictionary setObject:emptyData forKey:key];
-
+        
     }else{
         [self.downLoadHistoryDictionary setObject:data forKey:key];
     }
     
-  [self.downLoadHistoryDictionary writeToFile:self.fileHistoryPath atomically:NO];
+    [self.downLoadHistoryDictionary writeToFile:self.fileHistoryPath atomically:NO];
 }
 - (void)saveDownLoadHistoryDirectory{
     [self.downLoadHistoryDictionary writeToFile:self.fileHistoryPath atomically:YES];
@@ -90,6 +82,7 @@ static QDNetServerDownLoadTool *tool = nil;
         downloadTask = [self.manager downloadTaskWithResumeData:downLoadHistoryData progress:^(NSProgress * _Nonnull downloadProgress) {
             if (progress) {
                 progress(1.0 * downloadProgress.completedUnitCount / downloadProgress.totalUnitCount);
+                //                NSLog(@"%F",(1.0 * downloadProgress.completedUnitCount / downloadProgress.totalUnitCount));
             }
             
         } destination:^NSURL * _Nonnull(NSURL * _Nonnull targetPath, NSURLResponse * _Nonnull response) {
@@ -100,15 +93,21 @@ static QDNetServerDownLoadTool *tool = nil;
             if ([httpResponse statusCode] == 404) {
                 [[NSFileManager defaultManager] removeItemAtURL:filePath error:nil];
             }
-
+            
             if (error) {
                 if (failure) {
                     failure(error,[httpResponse statusCode]);
-                //将下载失败存储起来  提交到下面的 的网络监管类里面
+                    //将下载失败存储起来  提交到下面的 的网络监管类里面
                 }
             }else{
                 if (success) {
                     success(filePath,response);
+                    NSString *localPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+                    // 要检查的文件目录
+                    NSString *filePath = [localPath  stringByAppendingPathComponent:@"111.png"];
+                    NSDictionary *data = [[NSFileManager defaultManager] attributesOfItemAtPath:filePath error:nil];
+                    NSLog(@"data = %@",data);
+                    
                 }
                 //将下载成功存储起来  提交到下面的 的网络监管类里面
             }
@@ -119,7 +118,6 @@ static QDNetServerDownLoadTool *tool = nil;
         downloadTask = [self.manager    downloadTaskWithRequest:request progress:^(NSProgress * _Nonnull downloadProgress) {
             if (progress) {
                 progress(1.0 * downloadProgress.completedUnitCount / downloadProgress.totalUnitCount);
-                NSLog(@"%F",(1.0 * downloadProgress.completedUnitCount / downloadProgress.totalUnitCount));
             }
             
         } destination:^NSURL * _Nonnull(NSURL * _Nonnull targetPath, NSURLResponse * _Nonnull response) {
@@ -135,7 +133,7 @@ static QDNetServerDownLoadTool *tool = nil;
                 if (failure) {
                     failure(error,[httpResponse statusCode]);
                 }
-            //将下载失败存储起来  提交到了appDelegate 的网络监管类里面
+                //将下载失败存储起来  提交到了appDelegate 的网络监管类里面
             }else{
                 if (success) {
                     success(filePath,response);
@@ -193,7 +191,7 @@ static QDNetServerDownLoadTool *tool = nil;
 //- (void)URLSession:(NSURLSession *)session
 //              task:(NSURLSessionTask *)task
 //didCompleteWithError:(NSError *)error{
-//    
+//
 //}
 
 @end

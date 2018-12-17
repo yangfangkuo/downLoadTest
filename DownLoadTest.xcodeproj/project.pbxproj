@@ -16,6 +16,8 @@
 		271642A71FD69C0500F9AAC9 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 271642A61FD69C0500F9AAC9 /* main.m */; };
 		271642B11FD69C0500F9AAC9 /* DownLoadTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 271642B01FD69C0500F9AAC9 /* DownLoadTestTests.m */; };
 		271642BD1FD69E1700F9AAC9 /* QDNetServerDownLoadTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 271642BC1FD69E1600F9AAC9 /* QDNetServerDownLoadTool.m */; };
+		278E148421C7E60D00008AD5 /* ShowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 278E148321C7E60D00008AD5 /* ShowViewController.m */; };
+		278E148721C7E63B00008AD5 /* Test.m in Sources */ = {isa = PBXBuildFile; fileRef = 278E148621C7E63B00008AD5 /* Test.m */; };
 		EE8E1896A1AF5C8F330D314D /* libPods-DownLoadTestTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B633C7E8D21FCF3895740CA4 /* libPods-DownLoadTestTests.a */; };
 /* End PBXBuildFile section */
 
@@ -45,6 +47,10 @@
 		271642B21FD69C0500F9AAC9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		271642BB1FD69E1600F9AAC9 /* QDNetServerDownLoadTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QDNetServerDownLoadTool.h; sourceTree = "<group>"; };
 		271642BC1FD69E1600F9AAC9 /* QDNetServerDownLoadTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QDNetServerDownLoadTool.m; sourceTree = "<group>"; };
+		278E148221C7E60D00008AD5 /* ShowViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShowViewController.h; sourceTree = "<group>"; };
+		278E148321C7E60D00008AD5 /* ShowViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShowViewController.m; sourceTree = "<group>"; };
+		278E148521C7E63B00008AD5 /* Test.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Test.h; sourceTree = "<group>"; };
+		278E148621C7E63B00008AD5 /* Test.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Test.m; sourceTree = "<group>"; };
 		4C07D5EFE367793E1FEE3FAB /* Pods-DownLoadTestTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DownLoadTestTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DownLoadTestTests/Pods-DownLoadTestTests.debug.xcconfig"; sourceTree = "<group>"; };
 		A50668B023F2905BB21EE19B /* Pods-DownLoadTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DownLoadTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DownLoadTest/Pods-DownLoadTest.debug.xcconfig"; sourceTree = "<group>"; };
 		ACC3F7AC4FB6039CF1B67A46 /* libPods-DownLoadTest.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DownLoadTest.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -100,6 +106,10 @@
 				271642981FD69C0500F9AAC9 /* AppDelegate.m */,
 				2716429A1FD69C0500F9AAC9 /* ViewController.h */,
 				2716429B1FD69C0500F9AAC9 /* ViewController.m */,
+				278E148521C7E63B00008AD5 /* Test.h */,
+				278E148621C7E63B00008AD5 /* Test.m */,
+				278E148221C7E60D00008AD5 /* ShowViewController.h */,
+				278E148321C7E60D00008AD5 /* ShowViewController.m */,
 				271642BB1FD69E1600F9AAC9 /* QDNetServerDownLoadTool.h */,
 				271642BC1FD69E1600F9AAC9 /* QDNetServerDownLoadTool.m */,
 				2716429D1FD69C0500F9AAC9 /* Main.storyboard */,
@@ -348,7 +358,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				2716429C1FD69C0500F9AAC9 /* ViewController.m in Sources */,
+				278E148421C7E60D00008AD5 /* ShowViewController.m in Sources */,
 				271642BD1FD69E1700F9AAC9 /* QDNetServerDownLoadTool.m in Sources */,
+				278E148721C7E63B00008AD5 /* Test.m in Sources */,
 				271642A71FD69C0500F9AAC9 /* main.m in Sources */,
 				271642991FD69C0500F9AAC9 /* AppDelegate.m in Sources */,
 			);
@@ -504,6 +516,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5AKB523DZ4;
 				INFOPLIST_FILE = DownLoadTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = quarkdata.DownLoadTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -519,6 +532,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5AKB523DZ4;
 				INFOPLIST_FILE = DownLoadTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = quarkdata.DownLoadTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
