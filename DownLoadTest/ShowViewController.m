@@ -36,13 +36,13 @@
     
     localArray = [NSMutableArray array];
     // 要检查的文件目录
-    for (int i = 0; i < urlArr.count; i++) {
-        NSString *filePath = [localPath  stringByAppendingPathComponent:[NSString stringWithFormat:@"%d11123.mp4",i]];
-        NSURL *url = [NSURL fileURLWithPath:filePath isDirectory:NO];
-        [self testdownLoadWithTask:urlArr[i] FileUrl:url];
-//        [self downLoadWithTask:urlArr[i] FileUrl:url];
-        
-    }
+//    for (int i = 0; i < urlArr.count; i++) {
+//        NSString *filePath = [localPath  stringByAppendingPathComponent:[NSString stringWithFormat:@"%d11123.mp4",i]];
+//        NSURL *url = [NSURL fileURLWithPath:filePath isDirectory:NO];
+//        [self testdownLoadWithTask:urlArr[i] FileUrl:url];
+////        [self downLoadWithTask:urlArr[i] FileUrl:url];
+//        
+//    }
     [self performSelector:@selector(deal) withObject:nil afterDelay:1];
     
     // Do any additional setup after loading the view.
