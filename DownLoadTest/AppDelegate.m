@@ -16,7 +16,9 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    [QDNetServerDownLoadTool sharedTool];//先把遗留信息处理一下
+    
+    //测试断点续传和后台下载需要开启这个
+//    [QDNetServerDownLoadTool sharedTool];//先把遗留信息处理一下
     // Override point for customization after application launch.
     return YES;
 }

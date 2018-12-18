@@ -30,18 +30,32 @@
     self.view.backgroundColor = [UIColor whiteColor];
     downLoadUrl = @"https://www.apple.com/105/media/cn/iphone-x/2017/01df5b43-28e4-4848-bf20-490c34a926a7/films/feature/iphone-x-feature-cn-20170912_1280x720h.mp4";
 
+    
     urlArr = [NSMutableArray arrayWithObjects:downLoadUrl,downLoadUrl,downLoadUrl,downLoadUrl,downLoadUrl,downLoadUrl,downLoadUrl,downLoadUrl,downLoadUrl,downLoadUrl,downLoadUrl,downLoadUrl,downLoadUrl,downLoadUrl,downLoadUrl,downLoadUrl,downLoadUrl,downLoadUrl,downLoadUrl,downLoadUrl,downLoadUrl,downLoadUrl,downLoadUrl,downLoadUrl,downLoadUrl,downLoadUrl,downLoadUrl,downLoadUrl,downLoadUrl,downLoadUrl,downLoadUrl,downLoadUrl,downLoadUrl,downLoadUrl,downLoadUrl,nil];
     NSString *localPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+    
+    localArray = [NSMutableArray array];
     // 要检查的文件目录
     for (int i = 0; i < urlArr.count; i++) {
         NSString *filePath = [localPath  stringByAppendingPathComponent:[NSString stringWithFormat:@"%d11123.mp4",i]];
         NSURL *url = [NSURL fileURLWithPath:filePath isDirectory:NO];
-//        [self testdownLoadWithTask:urlArr[i] FileUrl:url];
-        [self downLoadWithTask:urlArr[i] FileUrl:url];
+        [self testdownLoadWithTask:urlArr[i] FileUrl:url];
+//        [self downLoadWithTask:urlArr[i] FileUrl:url];
         
     }
+    [self performSelector:@selector(deal) withObject:nil afterDelay:1];
     
     // Do any additional setup after loading the view.
+}
+- (void)deal{
+    for (int i = 0; i < urlArr.count; i++) {
+        NSString *localPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+        NSString *filePath = [localPath  stringByAppendingPathComponent:[NSString stringWithFormat:@"%d11123.mp4",i]];
+        NSURL *url = [NSURL fileURLWithPath:filePath isDirectory:NO];
+//        [self testdownLoadWithTask:urlArr[i] FileUrl:url];
+                [self downLoadWithTask:urlArr[i] FileUrl:url];
+        
+    }
 }
 - (void)testdownLoadWithTask:(NSString *)url FileUrl:(NSURL *)fileuUrl{
     
