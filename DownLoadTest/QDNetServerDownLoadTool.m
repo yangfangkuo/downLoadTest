@@ -25,14 +25,16 @@ static QDNetServerDownLoadTool *tool = nil;
 - (instancetype)init{
     self = [super init];
     if (self) {
-        NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration backgroundSessionConfigurationWithIdentifier:@"com.bundleiD.TES"];
-        //设置请求超时为10秒钟
+        NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration backgroundSessionConfigurationWithIdentifier:@"com.deda.cin"];
+        configuration.HTTPMaximumConnectionsPerHost = 8;
         
-        configuration.timeoutIntervalForRequest = 30;
-        //在蜂窝网络情况下是否继续请求（上传或下载）
-        configuration.allowsCellularAccess = YES;
+//        //设置请求超时为10秒钟
+//
+//        configuration.timeoutIntervalForRequest = 30;
+//        //在蜂窝网络情况下是否继续请求（上传或下载）
+//        configuration.allowsCellularAccess = YES;
         
-        self.manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
+        self.manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration ephemeralSessionConfiguration]];
         
         //网络变化的通知
 //        [[NSNotificationCenter defaultCenter] addObserver:self
@@ -57,6 +59,7 @@ static QDNetServerDownLoadTool *tool = nil;
             [self.downLoadHistoryDictionary writeToFile:self.fileHistoryPath atomically:YES];
         }
         NSLog(@"%s   self.test.session = %@ ",__func__,self.manager.session);
+        
     }
     return  self;
 }
@@ -84,7 +87,7 @@ static QDNetServerDownLoadTool *tool = nil;
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:urlHost]];
     NSURLSessionDownloadTask   *downloadTask = nil;
     NSData *downLoadHistoryData = [self.downLoadHistoryDictionary   objectForKey:urlHost];
-    NSLog(@"本地是否存储需要续传的数据长度为 %ld",downLoadHistoryData.length);
+//    NSLog(@"本地是否存储需要续传的数据长度为 %ld",downLoadHistoryData.length);
     if (downLoadHistoryData.length > 0 ) {
         NSLog(@"使用旧任务");
         downloadTask = [self.manager downloadTaskWithResumeData:downLoadHistoryData progress:^(NSProgress * _Nonnull downloadProgress) {
@@ -115,11 +118,11 @@ static QDNetServerDownLoadTool *tool = nil;
             
         }];
     }else{
-        NSLog(@"开辟 新任务");
+//        NSLog(@"开辟 新任务");
         downloadTask = [self.manager    downloadTaskWithRequest:request progress:^(NSProgress * _Nonnull downloadProgress) {
             if (progress) {
                 progress(1.0 * downloadProgress.completedUnitCount / downloadProgress.totalUnitCount);
-                NSLog(@"%F",(1.0 * downloadProgress.completedUnitCount / downloadProgress.totalUnitCount));
+//                NSLog(@"%F",(1.0 * downloadProgress.completedUnitCount / downloadProgress.totalUnitCount));
             }
             
         } destination:^NSURL * _Nonnull(NSURL * _Nonnull targetPath, NSURLResponse * _Nonnull response) {

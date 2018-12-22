@@ -28,7 +28,7 @@ static Test *tool = nil;
         NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration defaultSessionConfiguration];
         //在蜂窝网络情况下是否继续请求（上传或下载）
 //        configuration.allowsCellularAccess = YES;
-        configuration.HTTPMaximumConnectionsPerHost = 12;
+        configuration.HTTPMaximumConnectionsPerHost = 6;
         _manager = [[AFHTTPSessionManager alloc] initWithSessionConfiguration:configuration];
         //        1 2  6 3  5
         NSURLSessionDownloadTask *task;
@@ -76,7 +76,7 @@ static Test *tool = nil;
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:urlHost]];
     NSURLSessionDownloadTask   *downloadTask = nil;
     NSData *downLoadHistoryData = [self.downLoadHistoryDictionary   objectForKey:urlHost];
-    NSLog(@"本地是否存储需要续传的数据长度为 %ld",downLoadHistoryData.length);
+//    NSLog(@"本地是否存储需要续传的数据长度为 %ld",downLoadHistoryData.length);
     if (downLoadHistoryData.length > 0 ) {
         NSLog(@"使用旧任务");
         downloadTask = [self.manager downloadTaskWithResumeData:downLoadHistoryData progress:^(NSProgress * _Nonnull downloadProgress) {
@@ -114,7 +114,7 @@ static Test *tool = nil;
             
         }];
     }else{
-        NSLog(@"开辟 新任务");
+//        NSLog(@"开辟 新任务");
         downloadTask = [self.manager    downloadTaskWithRequest:request progress:^(NSProgress * _Nonnull downloadProgress) {
             if (progress) {
                 progress(1.0 * downloadProgress.completedUnitCount / downloadProgress.totalUnitCount);

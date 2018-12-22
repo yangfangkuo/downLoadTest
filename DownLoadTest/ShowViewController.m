@@ -31,21 +31,31 @@
     downLoadUrl = @"https://www.apple.com/105/media/cn/iphone-x/2017/01df5b43-28e4-4848-bf20-490c34a926a7/films/feature/iphone-x-feature-cn-20170912_1280x720h.mp4";
 
     
-    urlArr = [NSMutableArray arrayWithObjects:downLoadUrl,downLoadUrl,downLoadUrl,downLoadUrl,downLoadUrl,downLoadUrl,downLoadUrl,downLoadUrl,downLoadUrl,downLoadUrl,downLoadUrl,downLoadUrl,downLoadUrl,downLoadUrl,downLoadUrl,downLoadUrl,downLoadUrl,downLoadUrl,downLoadUrl,downLoadUrl,downLoadUrl,downLoadUrl,downLoadUrl,downLoadUrl,downLoadUrl,downLoadUrl,downLoadUrl,downLoadUrl,downLoadUrl,downLoadUrl,downLoadUrl,downLoadUrl,downLoadUrl,downLoadUrl,downLoadUrl,nil];
-    NSString *localPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+    urlArr = [NSMutableArray arrayWithObjects:downLoadUrl];
     
     localArray = [NSMutableArray array];
     // 要检查的文件目录
-//    for (int i = 0; i < urlArr.count; i++) {
-//        NSString *filePath = [localPath  stringByAppendingPathComponent:[NSString stringWithFormat:@"%d11123.mp4",i]];
-//        NSURL *url = [NSURL fileURLWithPath:filePath isDirectory:NO];
-//        [self testdownLoadWithTask:urlArr[i] FileUrl:url];
-////        [self downLoadWithTask:urlArr[i] FileUrl:url];
-//        
+    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(DoIt) userInfo:nil repeats:YES];
+    
+//    for (int i = 0; i < 10; i++) {
+//
 //    }
-    [self performSelector:@selector(deal) withObject:nil afterDelay:1];
+//    [self performSelector:@selector(deal) withObject:nil afterDelay:1];
     
     // Do any additional setup after loading the view.
+}
+static int single = 0;
+- (void)DoIt{
+    NSString *localPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+    NSString *filePath = [localPath  stringByAppendingPathComponent:[NSString stringWithFormat:@"%d11123.mp4",single]];
+    NSURL *url = [NSURL fileURLWithPath:filePath isDirectory:NO];
+    if (single %2 == 0) {
+        
+        [self downLoadWithTask:urlArr[1] FileUrl:url];
+    }else{
+        [self testdownLoadWithTask:urlArr[1] FileUrl:url];
+    }
+    single++;
 }
 - (void)deal{
     for (int i = 0; i < urlArr.count; i++) {
