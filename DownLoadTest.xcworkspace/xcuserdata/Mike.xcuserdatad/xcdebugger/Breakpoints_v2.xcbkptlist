@@ -122,11 +122,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "DownLoadTest/ShowViewController.m"
-            timestampString = "567172531.003762"
+            timestampString = "567172948.376251"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
             landmarkName = "-DoIt"
             landmarkType = "7">
          </BreakpointContent>

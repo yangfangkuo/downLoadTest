@@ -31,16 +31,27 @@
     downLoadUrl = @"https://www.apple.com/105/media/cn/iphone-x/2017/01df5b43-28e4-4848-bf20-490c34a926a7/films/feature/iphone-x-feature-cn-20170912_1280x720h.mp4";
 
     
-    urlArr = [NSMutableArray arrayWithObjects:downLoadUrl];
+    urlArr = [NSMutableArray arrayWithObjects:downLoadUrl,downLoadUrl,nil];
     
     localArray = [NSMutableArray array];
     // 要检查的文件目录
     NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(DoIt) userInfo:nil repeats:YES];
     
-//    for (int i = 0; i < 10; i++) {
+    
+    /*这个是之前错误的for循环创建task的示范,留存作为纪念*/
+//    for (int i = 0; i < 100; i++) {
+//        NSString *localPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
+//        NSString *filePath = [localPath  stringByAppendingPathComponent:[NSString stringWithFormat:@"%d11123.mp4",i]];
+//        NSString *filePath2 = [localPath  stringByAppendingPathComponent:[NSString stringWithFormat:@"%daaaaaa3.mp4",i]];
+//        NSURL *url = [NSURL fileURLWithPath:filePath isDirectory:NO];
+//        NSURL *url2 = [NSURL fileURLWithPath:filePath2 isDirectory:NO];
 //
+//        [self downLoadWithTask:urlArr[0] FileUrl:url];
+//        [self testdownLoadWithTask:urlArr[0] FileUrl:url2];
 //    }
-//    [self performSelector:@selector(deal) withObject:nil afterDelay:1];
+    /*这个是之前错误的for循环创建task的示范,留存作为纪念*/
+
+
     
     // Do any additional setup after loading the view.
 }
@@ -56,16 +67,6 @@ static int single = 0;
         [self testdownLoadWithTask:urlArr[1] FileUrl:url];
     }
     single++;
-}
-- (void)deal{
-    for (int i = 0; i < urlArr.count; i++) {
-        NSString *localPath = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-        NSString *filePath = [localPath  stringByAppendingPathComponent:[NSString stringWithFormat:@"%d11123.mp4",i]];
-        NSURL *url = [NSURL fileURLWithPath:filePath isDirectory:NO];
-//        [self testdownLoadWithTask:urlArr[i] FileUrl:url];
-                [self downLoadWithTask:urlArr[i] FileUrl:url];
-        
-    }
 }
 - (void)testdownLoadWithTask:(NSString *)url FileUrl:(NSURL *)fileuUrl{
     
