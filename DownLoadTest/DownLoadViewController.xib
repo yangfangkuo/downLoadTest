@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DownLoadViewController">
+            <connections>
+                <outlet property="Progress" destination="H45-w1-3af" id="fZf-my-0B5"/>
+                <outlet property="progressLabel" destination="ca4-Cm-vnF" id="bgA-Cs-rXt"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hpk-oL-ves">
+                    <rect key="frame" x="0.0" y="44" width="414" height="667"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ea3-GV-wxM">
+                            <rect key="frame" x="176" y="225" width="62" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="kvM-oV-pkp"/>
+                            </constraints>
+                            <state key="normal" title="暂停下载"/>
+                            <connections>
+                                <action selector="pause:" destination="-1" eventType="touchUpInside" id="J93-Gb-a3k"/>
+                            </connections>
+                        </button>
+                        <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="H45-w1-3af">
+                            <rect key="frame" x="48" y="89" width="318" height="2"/>
+                        </progressView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="下载进度" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ca4-Cm-vnF">
+                            <rect key="frame" x="117" y="108" width="161" height="21"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jJF-Kx-wH8">
+                            <rect key="frame" x="158.5" y="167" width="97" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="2aZ-zt-Xkv"/>
+                            </constraints>
+                            <state key="normal" title="开始/继续下载"/>
+                            <connections>
+                                <action selector="startNew:" destination="-1" eventType="touchUpInside" id="KSH-po-gMK"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="H45-w1-3af" firstAttribute="leading" secondItem="Hpk-oL-ves" secondAttribute="leadingMargin" constant="40" id="02U-Zj-Vko"/>
+                        <constraint firstAttribute="trailingMargin" secondItem="H45-w1-3af" secondAttribute="trailing" constant="40" id="1Ss-XM-xCY"/>
+                        <constraint firstItem="jJF-Kx-wH8" firstAttribute="top" secondItem="ca4-Cm-vnF" secondAttribute="bottom" constant="38" id="Edd-SQ-rua"/>
+                        <constraint firstItem="Ea3-GV-wxM" firstAttribute="centerX" secondItem="Hpk-oL-ves" secondAttribute="centerX" id="Ehy-vE-Oy8"/>
+                        <constraint firstItem="jJF-Kx-wH8" firstAttribute="centerX" secondItem="Hpk-oL-ves" secondAttribute="centerX" id="J3n-Oe-7gV"/>
+                        <constraint firstItem="qAG-yY-0ZP" firstAttribute="trailing" secondItem="ca4-Cm-vnF" secondAttribute="trailing" constant="136" id="WmW-3x-g8V"/>
+                        <constraint firstItem="ca4-Cm-vnF" firstAttribute="leading" secondItem="qAG-yY-0ZP" secondAttribute="leading" constant="117" id="bWr-eO-K3x"/>
+                        <constraint firstItem="ca4-Cm-vnF" firstAttribute="top" secondItem="H45-w1-3af" secondAttribute="bottom" constant="17" id="hhk-uV-Ahr"/>
+                        <constraint firstItem="H45-w1-3af" firstAttribute="top" secondItem="qAG-yY-0ZP" secondAttribute="top" constant="89" id="lvD-3E-epj"/>
+                        <constraint firstItem="jJF-Kx-wH8" firstAttribute="top" secondItem="ca4-Cm-vnF" secondAttribute="bottom" constant="38" id="tlb-n5-Q9d"/>
+                        <constraint firstItem="Ea3-GV-wxM" firstAttribute="top" secondItem="jJF-Kx-wH8" secondAttribute="bottom" constant="28" id="ygk-Xi-ldy"/>
+                    </constraints>
+                    <viewLayoutGuide key="safeArea" id="qAG-yY-0ZP"/>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Hpk-oL-ves" firstAttribute="leading" secondItem="Q5M-cg-NOt" secondAttribute="leading" id="4U7-ci-II2"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="bottom" secondItem="Hpk-oL-ves" secondAttribute="bottom" constant="151" id="gYi-UI-anD"/>
+                <constraint firstItem="Hpk-oL-ves" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" id="nTY-Nv-4c9"/>
+                <constraint firstItem="Q5M-cg-NOt" firstAttribute="trailing" secondItem="Hpk-oL-ves" secondAttribute="trailing" id="v3f-nd-dbC"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+        </view>
+    </objects>
+</document>

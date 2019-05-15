@@ -25,7 +25,7 @@ static QDNetServerDownLoadTool *tool = nil;
 - (instancetype)init{
     self = [super init];
     if (self) {
-        NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration backgroundSessionConfigurationWithIdentifier:@"com.deda.cin"];
+        NSURLSessionConfiguration *configuration = [NSURLSessionConfiguration backgroundSessionConfigurationWithIdentifier:@"com.quarkdata.emm"];
         configuration.HTTPMaximumConnectionsPerHost = 8;
         
 //        //设置请求超时为10秒钟
@@ -34,7 +34,7 @@ static QDNetServerDownLoadTool *tool = nil;
 //        //在蜂窝网络情况下是否继续请求（上传或下载）
 //        configuration.allowsCellularAccess = YES;
         
-        self.manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration ephemeralSessionConfiguration]];
+        self.manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
         
         //网络变化的通知
 //        [[NSNotificationCenter defaultCenter] addObserver:self
