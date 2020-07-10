@@ -35,6 +35,33 @@ static QDNetServerDownLoadTool *tool = nil;
 //        configuration.allowsCellularAccess = YES;
         
         self.manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:configuration];
+        __weak typeof(self)weakSelf = self;
+        [self.manager setTaskDidCompleteBlock:^(NSURLSession * _Nonnull session, NSURLSessionTask * _Nonnull task, NSError * _Nullable error) {
+            NSLog(@"manager 重启收到通知了 %@",task);
+            NSString *urlHost = [task.currentRequest.URL absoluteString];
+            if (error) {
+                if (error.code == -1001) {
+                    NSLog(@"下载出错,看一下网络是否正常");
+                }
+                NSData *resumeData = [error.userInfo objectForKey:@"NSURLSessionDownloadTaskResumeData"];
+                [weakSelf saveHistoryWithKey:urlHost DownloadTaskResumeData:resumeData];
+                //这个是因为 用户比如强退程序之后 ,再次进来的时候 存进去这个继续的data  需要用户去刷新列表
+            }else{
+                if ([weakSelf.downLoadHistoryDictionary valueForKey:urlHost]) {
+                    [weakSelf.downLoadHistoryDictionary removeObjectForKey:urlHost];
+                    [weakSelf saveDownLoadHistoryDirectory];
+                }
+            }
+
+        }];
+        
+        //这个代码和上面的setTaskDidCompleteBlock功能是一样的 使用上面的API更友好 通知同步会阻塞线程
+//        NSURLSessionDownloadTask *task;
+//        [[NSNotificationCenter defaultCenter] addObserver:self
+//                                                 selector:@selector(downLoadData:)
+//                                                     name:AFNetworkingTaskDidCompleteNotification
+//                                                   object:task];
+
         
         //网络变化的通知
 //        [[NSNotificationCenter defaultCenter] addObserver:self
@@ -42,11 +69,6 @@ static QDNetServerDownLoadTool *tool = nil;
 //                                                     name:kRealReachabilityChangedNotification
 //                                                   object:nil];
         
-        NSURLSessionDownloadTask *task;
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(downLoadData:)
-                                                     name:AFNetworkingTaskDidCompleteNotification
-                                                   object:task];
         
         NSArray *paths=NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES);
         NSString *path=[paths     objectAtIndex:0];
@@ -158,6 +180,8 @@ static QDNetServerDownLoadTool *tool = nil;
         NSURLSessionDownloadTask *task = notification.object;
         NSString *urlHost = [task.currentRequest.URL absoluteString];
         NSError *error  = [notification.userInfo objectForKey:AFNetworkingTaskDidCompleteErrorKey] ;
+        NSLog(@"重启收到通知了 %@",notification.object);
+
         if (error) {
             if (error.code == -1001) {
                 NSLog(@"下载出错,看一下网络是否正常");
